@@ -5,10 +5,20 @@ class Timer {
         this.pauseButton = pauseButton;
 
         this.startButton.addEventListener('click',this.start);
+        this.pauseButton.addEventListener('click',this.pause);
     }
 
-    start() {
-        console.log('Time to start button!');
+    start = () => {
+        this.tick();
+        this.intervalId = setInterval(this.tick,1000);
+    }
+    
+    tick = () => {
+        console.log('tick');
+    }
+
+    pause = () => {
+        clearInterval(this.intervalId);
     }
 }
 
